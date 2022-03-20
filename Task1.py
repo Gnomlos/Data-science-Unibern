@@ -45,11 +45,10 @@ def equalizer_1(data,steps):
         data_two["time"] = data_name.iloc[:,1]
         for i in range(space//2 ):
             cor1, cor2 = (2+steps*i), (2+steps*i+steps)
-            print(cor1,'     ',cor2)
+   
             if cor2 >= len(data_one.columns.values):
                 break
-                cor2 = len (data_one.columns.values)-1
-                print(cor2)
+  
             name_in = (data_one.columns.values[cor1]+data_one.columns.values[cor2])//steps
             data_two[name_in] = data_one[data_one.columns[cor1:cor2]].mean(axis=1)
         data_one =data_two
